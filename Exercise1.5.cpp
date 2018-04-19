@@ -37,6 +37,14 @@ char* strcat(char* destination, char* source){
     return destination;
 }
 
+char* strchr(char* ptr, char c){
+    char* ret = ptr;
+    while(*ret != c)
+        ret++;
+
+    return ret;
+}
+
 int main(){
     char ptr1[] = "Hello";
     char ptr2[] = "World";
@@ -51,8 +59,14 @@ int main(){
     else
         cout << ptr1 << " and " << ptr2 << " are different" << '\n';
 
-    // strcat test
+    // strchr test
+    cout << strchr(ptr1, 'o') << '\n';
+    cout << strchr(ptr2, '\0') << '\n';
+
+    // strcat test done last before we permanently change the string
     cout << strcat(ptr1, ptr2) << '\n';
+
+
 
     return 0;
 }
