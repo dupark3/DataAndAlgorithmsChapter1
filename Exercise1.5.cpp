@@ -26,6 +26,17 @@ bool strcmp(char* ptr1, char* ptr2){
     return true;
 }
 
+char* strcat(char* destination, char* source){
+    size_t overwrite_position = strlen(destination);
+    size_t source_size = strlen(source);
+
+    // copy one past the last element to copy the null character as well
+    for (size_t i = 0; i != source_size + 1; ++i)
+        destination[overwrite_position++] = source[i];
+    
+    return destination;
+}
+
 int main(){
     char ptr1[] = "Hello";
     char ptr2[] = "World";
@@ -39,6 +50,9 @@ int main(){
         cout << ptr1 << " and " << ptr2 << " are the same" << '\n';
     else
         cout << ptr1 << " and " << ptr2 << " are different" << '\n';
+
+    // strcat test
+    cout << strcat(ptr1, ptr2) << '\n';
 
     return 0;
 }
